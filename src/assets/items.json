@@ -1,0 +1,322 @@
+[
+  {
+    "category": "PLANT PROTEIN",
+    "name": "Organic Chocolate Protein",
+    "rating": 4.8,
+    "reviews": 247,
+    "protein_source": "Pea + Brown Rice",
+    "protein_per_serving": "25g",
+    "servings": 30,
+    "price": {
+      "amount": 29.99,
+      "currency": "USD",
+      "unit": "tub"
+    },
+    "weight_options": ["500g", "1kg", "2kg"],
+    "filter": "best"
+  },
+  {
+    "category": "VEGAN PROTEIN",
+    "name": "Vanilla Almond Plant Protein",
+    "rating": 4.7,
+    "reviews": 189,
+    "protein_source": "Pea Protein",
+    "protein_per_serving": "24g",
+    "servings": 30,
+    "price": {
+      "amount": 27.99,
+      "currency": "USD",
+      "unit": "tub"
+    },
+    "weight_options": ["500g", "1kg", "2kg"],
+    "filter": "sale"
+  },
+  {
+    "category": "PLANT PROTEIN",
+    "name": "Strawberry Oat Protein",
+    "rating": 4.6,
+    "reviews": 156,
+    "protein_source": "Pea + Oat Protein",
+    "protein_per_serving": "22g",
+    "servings": 25,
+    "price": {
+      "amount": 26.49,
+      "currency": "USD",
+      "unit": "tub"
+    },
+    "weight_options": ["500g", "1kg"],
+    "filter": "sale"
+  },
+  {
+    "category": "VEGAN PROTEIN",
+    "name": "Salted Caramel Protein",
+    "rating": 4.9,
+    "reviews": 321,
+    "protein_source": "Pea + Rice Protein",
+    "protein_per_serving": "25g",
+    "servings": 30,
+    "price": {
+      "amount": 32.99,
+      "currency": "USD",
+      "unit": "tub"
+    },
+    "weight_options": ["500g", "1kg", "2kg"],
+    "filter": "best"
+  },
+  {
+    "category": "PLANT PROTEIN",
+    "name": "Banana Cream Protein",
+    "rating": 4.5,
+    "reviews": 98,
+    "protein_source": "Yellow Pea Protein",
+    "protein_per_serving": "23g",
+    "servings": 28,
+    "price": {
+      "amount": 24.99,
+      "currency": "USD",
+      "unit": "tub"
+    },
+    "weight_options": ["500g", "1kg"],
+    "filter": "sale"
+  },
+  {
+    "category": "VEGAN PROTEIN",
+    "name": "Peanut Butter Cookie Protein",
+    "rating": 4.8,
+    "reviews": 412,
+    "protein_source": "Pea + Brown Rice",
+    "protein_per_serving": "26g",
+    "servings": 30,
+    "price": {
+      "amount": 31.99,
+      "currency": "USD",
+      "unit": "tub"
+    },
+    "weight_options": ["500g", "1kg", "2kg"],
+    "filter": "best"
+  },
+  {
+    "category": "PLANT PROTEIN",
+    "name": "Blueberry Muffin Protein",
+    "rating": 4.6,
+    "reviews": 143,
+    "protein_source": "Pea + Hemp Protein",
+    "protein_per_serving": "21g",
+    "servings": 25,
+    "price": {
+      "amount": 28.49,
+      "currency": "USD",
+      "unit": "tub"
+    },
+    "weight_options": ["500g", "1kg"],
+    "filter": "bundle"
+  },
+  {
+    "category": "VEGAN PROTEIN",
+    "name": "Mocha Coffee Protein",
+    "rating": 4.9,
+    "reviews": 276,
+    "protein_source": "Pea + Rice Protein",
+    "protein_per_serving": "25g",
+    "servings": 30,
+    "price": {
+      "amount": 30.99,
+      "currency": "USD",
+      "unit": "tub"
+    },
+    "weight_options": ["500g", "1kg", "2kg"],
+    "filter": "best"
+  },
+  {
+    "category": "PLANT PROTEIN",
+    "name": "Coconut Cream Protein",
+    "rating": 4.4,
+    "reviews": 87,
+    "protein_source": "Coconut + Pea Protein",
+    "protein_per_serving": "22g",
+    "servings": 25,
+    "price": {
+      "amount": 25.99,
+      "currency": "USD",
+      "unit": "tub"
+    },
+    "weight_options": ["500g", "1kg"],
+    "filter": "bundle"
+  },
+  {
+    "category": "VEGAN PROTEIN",
+    "name": "Dark Chocolate Fudge Protein",
+    "rating": 4.9,
+    "reviews": 538,
+    "protein_source": "Pea + Brown Rice",
+    "protein_per_serving": "27g",
+    "servings": 30,
+    "price": {
+      "amount": 34.99,
+      "currency": "USD",
+      "unit": "tub"
+    },
+    "weight_options": ["500g", "1kg", "2kg"],
+    "filter": "best"
+  },
+  {
+    "category": "PLANT PROTEIN",
+    "name": "Mango Passionfruit Protein",
+    "rating": 4.7,
+    "reviews": 164,
+    "protein_source": "Pea Protein",
+    "protein_per_serving": "20g",
+    "servings": 25,
+    "price": {
+      "amount": 27.49,
+      "currency": "USD",
+      "unit": "tub"
+    },
+    "weight_options": ["500g", "1kg"],
+    "filter": "sale"
+  },
+  {
+    "category": "VEGAN PROTEIN",
+    "name": "Cinnamon Roll Protein",
+    "rating": 4.8,
+    "reviews": 295,
+    "protein_source": "Pea + Rice Protein",
+    "protein_per_serving": "24g",
+    "servings": 30,
+    "price": {
+      "amount": 29.49,
+      "currency": "USD",
+      "unit": "tub"
+    },
+    "weight_options": ["500g", "1kg", "2kg"],
+    "filter": "bundle"
+  },
+  {
+    "category": "PLANT PROTEIN",
+    "name": "Matcha Vanilla Protein",
+    "rating": 4.5,
+    "reviews": 112,
+    "protein_source": "Pea + Hemp Protein",
+    "protein_per_serving": "21g",
+    "servings": 25,
+    "price": {
+      "amount": 32.49,
+      "currency": "USD",
+      "unit": "tub"
+    },
+    "weight_options": ["500g", "1kg"],
+    "filter": "bundle"
+  },
+  {
+    "category": "VEGAN PROTEIN",
+    "name": "Chocolate Hazelnut Protein",
+    "rating": 4.9,
+    "reviews": 387,
+    "protein_source": "Pea + Brown Rice",
+    "protein_per_serving": "25g",
+    "servings": 30,
+    "price": {
+      "amount": 33.99,
+      "currency": "USD",
+      "unit": "tub"
+    },
+    "weight_options": ["500g", "1kg", "2kg"],
+    "filter": "best"
+  },
+  {
+    "category": "PLANT PROTEIN",
+    "name": "Apple Cinnamon Protein",
+    "rating": 4.6,
+    "reviews": 134,
+    "protein_source": "Pea + Oat Protein",
+    "protein_per_serving": "23g",
+    "servings": 28,
+    "price": {
+      "amount": 26.99,
+      "currency": "USD",
+      "unit": "tub"
+    },
+    "weight_options": ["500g", "1kg"],
+    "filter": "sale"
+  },
+  {
+    "category": "VEGAN PROTEIN",
+    "name": "Cookies & Cream Protein",
+    "rating": 4.8,
+    "reviews": 463,
+    "protein_source": "Pea + Rice Protein",
+    "protein_per_serving": "25g",
+    "servings": 30,
+    "price": {
+      "amount": 31.49,
+      "currency": "USD",
+      "unit": "tub"
+    },
+    "weight_options": ["500g", "1kg", "2kg"],
+    "filter": "best"
+  },
+  {
+    "category": "PLANT PROTEIN",
+    "name": "Raspberry Cheesecake Protein",
+    "rating": 4.7,
+    "reviews": 208,
+    "protein_source": "Pea Protein",
+    "protein_per_serving": "24g",
+    "servings": 30,
+    "price": {
+      "amount": 30.49,
+      "currency": "USD",
+      "unit": "tub"
+    },
+    "weight_options": ["500g", "1kg"],
+    "filter": "bundle"
+  },
+  {
+    "category": "VEGAN PROTEIN",
+    "name": "Pistachio Cream Protein",
+    "rating": 4.6,
+    "reviews": 176,
+    "protein_source": "Pea + Hemp Protein",
+    "protein_per_serving": "22g",
+    "servings": 25,
+    "price": {
+      "amount": 33.49,
+      "currency": "USD",
+      "unit": "tub"
+    },
+    "weight_options": ["500g", "1kg", "2kg"],
+    "filter": "bundle"
+  },
+  {
+    "category": "PLANT PROTEIN",
+    "name": "Chocolate Banana Protein",
+    "rating": 4.8,
+    "reviews": 349,
+    "protein_source": "Pea + Brown Rice",
+    "protein_per_serving": "26g",
+    "servings": 30,
+    "price": {
+      "amount": 29.99,
+      "currency": "USD",
+      "unit": "tub"
+    },
+    "weight_options": ["500g", "1kg", "2kg"],
+    "filter": "best"
+  },
+  {
+    "category": "VEGAN PROTEIN",
+    "name": "Vanilla Chai Protein",
+    "rating": 4.5,
+    "reviews": 121,
+    "protein_source": "Pea + Rice Protein",
+    "protein_per_serving": "23g",
+    "servings": 28,
+    "price": {
+      "amount": 28.99,
+      "currency": "USD",
+      "unit": "tub"
+    },
+    "weight_options": ["500g", "1kg"],
+    "filter": "sale"
+  }
+]

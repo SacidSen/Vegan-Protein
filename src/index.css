@@ -1,0 +1,27 @@
+﻿@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.checkout-input {
+  display: block;
+  width: 100%;
+  margin-top: 0;
+  border: 1px solid transparent;
+  border-radius: 0.75rem;
+  background: #fff;
+  padding: 0.8rem 0.9rem;
+  color: #303632;
+  font-size: 0.875rem;
+  box-shadow: 0 2px 12px rgb(22 50 30 / 4%);
+  outline: none;
+  transition: box-shadow 150ms ease, border-color 150ms ease;
+}
+
+.checkout-input:focus {
+  border-color: #a9d8b2;
+  box-shadow: 0 0 0 3px rgb(23 175 38 / 10%);
+}
+
+.checkout-input::placeholder {
+  color: #a3aaa4;
+}
