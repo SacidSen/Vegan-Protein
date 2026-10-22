@@ -6,17 +6,19 @@ import { useCart } from "../../Context/CartContext";
 import { useAuth } from "../../Context/AuthContext";
 
 const navigation = [
-  "Shop All",
-  "Plant Protein",
-  "Vegan Protein",
-  "Bundles",
+  { label: "Shop All", to: "/shop" },
+  { label: "Support", to: "/support" },
+  { label: "Contact", to: "/contact" },
+  { label: "Blog", to: "/blog" },
 ];
+
+const flowerSorts = ["Schoko-Banane", "Erdbeer-Banane", "Cookies & Cream", "Mango-Maracuja", "Vanille-Karamell"];
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isShopOpen, setIsShopOpen] = useState(false);
 
-  const { itemCount } = useCart();
+  const { items, itemCount, subtotal, updateQuantity, removeItem } = useCart();
   const { user, isAuthenticated, logout } = useAuth();
 
   const handleLogout = () => {
@@ -102,18 +104,18 @@ export default function Header() {
 
           <span className="h-4 w-px bg-grayLight" />
 
-          {/* Cart */}
-          <Link
-            to="/cart"
-            className="relative text-lg"
-            aria-label={`Shopping bag with ${ itemCount } items`}
-          >
-            <i className="bi bi-bag" />
-
-            <span className="absolute -right-2 -top-2 flex h-4 min-w-4 items-center justify-center rounded-full bg-red px-1 text-[9px] text-white">
-              {itemCount}
-            </span>
-          </Link>
+          {/* Cart with a compact hover preview */}
+          <div className="group relative py-3" onKeyDown={(event) => { if (event.key === "Escape") (event.currentTarget as HTMLElement).blur(); }}>
+            <Link to="/cart" className="relative text-lg" aria-label={`Shopping bag with ${itemCount} items`}>
+              <i className="bi bi-bag" />
+              <span className="absolute -right-2 -top-2 flex h-4 min-w-4 items-center justify-center rounded-full bg-red px-1 text-[9px] text-white">{itemCount}</span>
+            </Link>
+            <div className="invisible absolute right-0 top-[calc(100%-0.75rem)] z-30 w-80 translate-y-2 rounded-2xl border border-[#e8ede7] bg-white p-4 opacity-0 shadow-[0_18px_50px_rgba(0,0,0,0.14)] transition duration-150 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100">
+              <div className="flex items-center justify-between border-b border-[#eef0ed] pb-3"><p className="text-sm font-extrabold text-[#202a23]">Your bag <span className="font-medium text-[#89918b]">({itemCount})</span></p><Link to="/cart" className="text-[10px] font-bold text-[#168b2e] hover:underline">View cart</Link></div>
+              {items.length === 0 ? <p className="py-6 text-center text-xs text-[#89918b]">Your bag is waiting for something tasty.</p> : <div className="max-h-64 space-y-3 overflow-y-auto py-3">{items.map((item) => <div key={item.id} className="flex items-center justify-between gap-3"><div className="min-w-0"><p className="truncate text-xs font-bold text-[#303a33]">{item.name}</p><p className="mt-0.5 text-[10px] text-[#89918b]">&euro;{item.price.toFixed(2)} each</p></div><div className="flex shrink-0 items-center gap-1"><button type="button" aria-label={`Reduce ${item.name}`} onClick={() => updateQuantity(item.id, item.quantity - 1)} className="h-6 w-6 rounded-full border border-[#e5e9e5] text-xs hover:bg-[#f2f6f1]">&#8722;</button><span className="w-4 text-center text-xs tabular-nums">{item.quantity}</span><button type="button" aria-label={`Add ${item.name}`} onClick={() => updateQuantity(item.id, item.quantity + 1)} className="h-6 w-6 rounded-full border border-[#e5e9e5] text-xs hover:bg-[#f2f6f1]">+</button><button type="button" aria-label={`Remove ${item.name}`} onClick={() => removeItem(item.id)} className="ml-1 text-xs text-[#a0a7a1] hover:text-[#d34f42]"><i className="bi bi-trash3" /></button></div></div>)}</div>}
+              <div className="flex items-center justify-between border-t border-[#eef0ed] pt-3 text-xs"><span className="text-[#69736c]">Subtotal</span><strong className="text-[#202a23]">&euro;{subtotal.toFixed(2)}</strong></div>
+            </div>
+          </div>
         </div>
 
         {/* Mobile menu button */}
@@ -150,57 +152,31 @@ export default function Header() {
             <button
               type="button"
               className="flex items-center gap-1 text-gray transition hover:text-darkGreen"
+              aria-expanded={isShopOpen}
+              onClick={() => setIsShopOpen((open) => !open)}
             >
-              Plant Protein
+              Flower
 
-              <i
-                className={`bi bi - chevron - down text - [10px] transition - transform ${
-  isShopOpen ? "rotate-180" : ""
-} `}
-              />
+              <i className={`bi bi-chevron-down text-[10px] transition-transform ${isShopOpen ? "rotate-180" : ""}`} />
             </button>
 
             {isShopOpen && (
               <div className="absolute left-1/2 top-full z-20 w-44 -translate-x-1/2 pt-2">
                 <div className="rounded-md border border-grayLight bg-white p-2 shadow-lg">
-                  <Link
-                    className="block rounded px-3 py-2 text-sm hover:bg-grayOff"
-                    to="/shop"
-                  >
-                    Chocolate
-                  </Link>
-
-                  <Link
-                    className="block rounded px-3 py-2 text-sm hover:bg-grayOff"
-                    to="/shop"
-                  >
-                    Vanilla
-                  </Link>
-
-                  <Link
-                    className="block rounded px-3 py-2 text-sm hover:bg-grayOff"
-                    to="/shop"
-                  >
-                    Best sellers
-                  </Link>
+                  {flowerSorts.map((sort) => (
+                    <Link key={sort} className="block rounded px-3 py-2 text-sm hover:bg-grayOff" to={`/shop?flower=${encodeURIComponent(sort)}`}>
+                      {sort}
+                    </Link>
+                  ))}
                 </div>
               </div>
             )}
           </div>
 
-          <Link
-            className="text-gray transition hover:text-darkGreen"
-            to="/shop"
-          >
-            Vegan Protein
-          </Link>
+          <Link className="text-gray transition hover:text-darkGreen" to="/support">Support</Link>
 
-          <Link
-            className="text-gray transition hover:text-darkGreen"
-            to="/shop"
-          >
-            Bundles
-          </Link>
+          <Link className="text-gray transition hover:text-darkGreen" to="/contact">Contact</Link>
+          <Link className="text-gray transition hover:text-darkGreen" to="/blog">Blog</Link>
         </Container>
       </nav>
 
@@ -218,17 +194,23 @@ export default function Header() {
           </label>
 
           <nav className="flex flex-col gap-1">
-            {navigation.map((item) => (
-              <Link
-                key={item}
-                to="/shop"
+            {navigation.map(({ label, to }) => (
+              <Link key={label} to={to}
                 onClick={() => setIsMenuOpen(false)}
                 className="rounded px-3 py-3 text-sm font-medium hover:bg-grayOff"
               >
-                {item}
+                {label}
               </Link>
             ))}
 
+            <details className="rounded px-3 py-3 text-sm font-medium">
+              <summary className="cursor-pointer">Flower</summary>
+              <div className="mt-2 flex flex-col">
+                {flowerSorts.map((sort) => (
+                  <Link key={sort} to={`/shop?flower=${encodeURIComponent(sort)}`} onClick={() => setIsMenuOpen(false)} className="rounded px-3 py-2 text-sm hover:bg-grayOff">{sort}</Link>
+                ))}
+              </div>
+            </details>
             <div className="my-2 h-px bg-grayLight" />
 
             {isAuthenticated ? (
@@ -292,3 +274,4 @@ export default function Header() {
     </header>
   );
 }
+

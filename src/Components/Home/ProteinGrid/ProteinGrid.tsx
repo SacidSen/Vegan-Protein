@@ -1,4 +1,4 @@
-﻿import { useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import productsData from "../../../assets/protein-products.json";
 import ProductCard from "./ProductCard";
 import ProteinFilters from "./ProteinFilters";
@@ -10,10 +10,18 @@ const filters: ProteinFilter[] = ["All", "Plant Protein", "Vegan Protein", "Meal
 export default function ProteinGrid() {
   const [activeFilter, setActiveFilter] = useState<ProteinFilter>("All");
 
+  const recentProducts = useMemo(() => products
+    .filter((product) => product.dateAdded && Date.parse(product.dateAdded) >= Date.now() - 30 * 24 * 60 * 60 * 1000)
+    .sort((a, b) => Date.parse(b.dateAdded ?? "") - Date.parse(a.dateAdded ?? "")),
+  []);
+
+
   const visibleProducts = useMemo(
-    () => products.filter((product) => activeFilter === "All" || (activeFilter === "On Sale" ? Boolean(product.oldPrice) : product.category === activeFilter)),
-    [activeFilter],
+    () => recentProducts.filter((product) => activeFilter === "All" || (activeFilter === "On Sale" ? Boolean(product.oldPrice) : product.category === activeFilter)),
+    [activeFilter, recentProducts],
   );
+
+  if (!recentProducts.length) return null;
 
   return (
     <section id="protein-grid" className="mx-auto w-full max-w-[1120px] px-5 py-16 sm:px-8 lg:py-24">

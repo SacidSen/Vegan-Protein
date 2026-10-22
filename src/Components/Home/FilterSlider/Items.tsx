@@ -34,6 +34,13 @@ const formatPrice = (product: Product) =>
 
 function ProductCard({ product }: { product: Product }) {
   const { addItem } = useCart();
+  const [isAdding, setIsAdding] = useState(false);
+  const handleAdd = () => {
+    if (isAdding) return;
+    addItem({ id: `featured-${product.name}`, name: product.name, category: product.category, price: product.price.amount });
+    setIsAdding(true);
+    window.setTimeout(() => setIsAdding(false), 900);
+  };
   return (
     <article className="h-full">
       <div className="relative h-[147px] overflow-hidden rounded-md bg-[#f4f4f4]">
@@ -119,10 +126,10 @@ function ProductCard({ product }: { product: Product }) {
 
         <button
           type="button"
-          onClick={() => addItem({ id: `featured-${product.name}`, name: product.name, category: product.category, price: product.price.amount })}
-          className="h-7 rounded-full bg-[#08ad29] px-4 text-[9px] font-semibold text-white transition hover:bg-[#079b25]"
+          onClick={handleAdd} disabled={isAdding}
+          className={`h-7 rounded-full px-4 text-[9px] font-semibold text-white transition-all duration-300 ${isAdding ? "scale-95 bg-[#128d20]" : "bg-[#08ad29] hover:bg-[#079b25]"}`}
         >
-          Add to Cart
+          {isAdding ? "Added!" : "Add to Cart"}
         </button>
       </div>
     </article>

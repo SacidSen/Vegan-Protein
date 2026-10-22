@@ -1,4 +1,4 @@
-import { createContext, useContext, useMemo, useState, type ReactNode } from "react";
+import { createContext, useContext, useEffect, useMemo, useState, type ReactNode } from "react";
 
 export type CartProduct = { id: string; name: string; category: string; price: number; tone?: string };
 export type CartItem = CartProduct & { quantity: number };
@@ -10,10 +10,11 @@ type CartContextValue = {
 };
 const CartContext = createContext<CartContextValue | undefined>(undefined);
 export function CartProvider({ children }: { children: ReactNode }) {
-  const [items, setItems] = useState<CartItem[]>([]);
+  const [items, setItems] = useState<CartItem[]>(() => { try { const saved = localStorage.getItem("vegan-fuel-cart"); return saved ? JSON.parse(saved) as CartItem[] : []; } catch { return []; } });
   const [discount, setDiscount] = useState(0);
   const [lastOrder, setLastOrder] = useState<CartContextValue["lastOrder"]>(null);
   const subtotal = items.reduce((total, item) => total + item.price * item.quantity, 0);
+  useEffect(() => { localStorage.setItem("vegan-fuel-cart", JSON.stringify(items)); }, [items]);
   const value = useMemo<CartContextValue>(() => ({
     items, itemCount: items.reduce((count, item) => count + item.quantity, 0), subtotal, discount, lastOrder,
     addItem: (product) => setItems((current) => { const existing = current.find((item) => item.id === product.id); return existing ? current.map((item) => item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item) : [...current, { ...product, quantity: 1 }]; }),

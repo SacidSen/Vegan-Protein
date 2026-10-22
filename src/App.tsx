@@ -3,6 +3,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import MainLayout from "./Layouts/MainLayout";
 
 import Blog from "./Pages/Blog";
+import Support from "./Pages/Support";
+import Contact from "./Pages/Contact";
 import Home from "./Pages/Home";
 import Shop from "./Pages/Shop";
 import Cart from "./Pages/Cart";
@@ -24,6 +26,8 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/blog" element={<Blog />} />
+              <Route path="/support" element={<Support />} />
+              <Route path="/contact" element={<Contact />} />
               <Route path="/shop" element={<Shop />} />
               <Route path="/shop/:productId" element={<ProductDetail />} />
               <Route path="/cart" element={<Cart />} />

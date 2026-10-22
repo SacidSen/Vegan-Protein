@@ -1,7 +1,17 @@
-function Blog() {
-  return (
-    <div>Blog</div>
-  )
-}
+const stories = [
+  { category: "THE EVERYDAY MIX", title: "A smoother shake, without the guesswork", date: "12 September 2026", read: "4 min read", tone: "bg-[#e8f1e4]", icon: "bi-cup-straw", text: "A few small tweaks can make your daily shake something you actually look forward to. Start with a little liquid, add your scoop, then top it up to find the texture you love." },
+  { category: "PLANT POWER", title: "Getting to know plant protein blends", date: "28 August 2026", read: "6 min read", tone: "bg-[#f3eadc]", icon: "bi-flower1", text: "Pea, rice, and other plant proteins each bring their own character. Blending ingredients can create a rounded taste and an easy way to add protein to your routine." },
+  { category: "GOOD HABITS", title: "Build a routine that fits real life", date: "06 August 2026", read: "3 min read", tone: "bg-[#e8edf2]", icon: "bi-sunrise", text: "The best routine is the one you can keep. Keep your favourite flavour handy, pair it with a moment you already have, and let consistency grow naturally." },
+];
 
-export default Blog
+export default function Blog() {
+  return (
+    <div className="bg-[#f7f9f6]">
+      <section className="px-5 pb-12 pt-16 sm:px-8 sm:pb-16 sm:pt-24"><div className="mx-auto max-w-6xl"><p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#169b31]">The Vegan Fuel journal</p><h1 className="mt-4 max-w-3xl text-4xl font-black tracking-[-0.05em] text-[#17251c] sm:text-6xl">Little notes for a fuller life.</h1><p className="mt-5 max-w-2xl text-sm leading-7 text-[#69736c] sm:text-base">Ideas, flavour stories, and simple ways to make plant-powered habits feel like your own.</p></div></section>
+      <section className="mx-auto max-w-6xl px-5 pb-20 sm:px-8"><article className="grid overflow-hidden rounded-3xl bg-[#173b25] text-white md:grid-cols-[1.05fr_0.95fr]"><div className="flex min-h-64 items-center justify-center bg-[#dcebd8] p-8 text-8xl text-[#488451] sm:text-9xl"><i className="bi bi-leaf" /></div><div className="flex flex-col justify-center p-7 sm:p-10 lg:p-14"><p className="text-[10px] font-bold uppercase tracking-[0.18em] text-[#acd6a8]">Featured · 5 min read</p><h2 className="mt-4 text-3xl font-black tracking-[-0.04em] sm:text-4xl">Small rituals, big feel-good energy</h2><p className="mt-4 text-sm leading-7 text-white/70">A little inspiration for bringing more colour, care, and plant-powered goodness into your everyday routine.</p><span className="mt-7 text-xs text-white/50">Vegan Fuel team · 20 September 2026</span></div></article>
+        <div className="mb-7 mt-14 flex items-end justify-between"><div><p className="text-[10px] font-bold uppercase tracking-[0.18em] text-[#169b31]">Fresh from the journal</p><h2 className="mt-2 text-3xl font-black tracking-[-0.04em] text-[#202a23]">Ideas to take with you</h2></div><span className="hidden text-xs text-[#89918b] sm:block">Stories for your everyday</span></div>
+        <div className="grid gap-5 md:grid-cols-3">{stories.map((story) => <article key={story.title} className="overflow-hidden rounded-2xl border border-[#e8ede7] bg-white"><div className={`flex h-44 items-center justify-center ${story.tone} text-6xl text-[#477a4c]`}><i className={`bi ${story.icon}`} /></div><div className="p-6"><p className="text-[9px] font-bold tracking-[0.17em] text-[#178c31]">{story.category}</p><h3 className="mt-3 text-xl font-extrabold leading-snug text-[#26332a]">{story.title}</h3><p className="mt-3 text-sm leading-6 text-[#737d75]">{story.text}</p><div className="mt-5 flex justify-between border-t border-[#eef0ed] pt-4 text-[10px] text-[#99a09a]"><span>{story.date}</span><span>{story.read}</span></div></div></article>)}</div>
+      </section>
+    </div>
+  );
+}

@@ -1,4 +1,4 @@
-﻿export type ProductCategory =
+export type ProductCategory =
   | "Plant Protein"
   | "Vegan Protein"
   | "Meal Replacement";
@@ -20,6 +20,8 @@ export type ProteinProduct = {
   slug?: string;
   description?: string;
   images?: string[];
+  dateAdded?: string;
+  flowerSort?: string;
 };
 
 export type ProteinFilter = "All" | ProductCategory | "On Sale";
